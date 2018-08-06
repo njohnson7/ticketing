@@ -1,0 +1,7 @@
+- if flash[:success]
+  %p.text-success= flash[:success]
+%h2= @project.name
+%p= @project.description
+%p
+  = link_to 'Edit', edit_project_path(@project)
+  = link_to 'Delete', project_path(@project), method: :delete
