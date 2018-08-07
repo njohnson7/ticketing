@@ -1,0 +1,15 @@
+- if @project.errors.any?
+  .text-danger
+    %h3 #{@project.errors.size} #{'error'.pluralize(@project.errors.size)} prohibited this project from being saved:
+    %ul
+      - @project.errors.full_messages.each do |error_msg|
+        %li= error_msg
+= form_with model: @project, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control bg-dark'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control bg-dark'
+  .form-group.actions
+    = f.submit nil, class: 'btn btn-primary'

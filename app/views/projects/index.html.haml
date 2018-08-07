@@ -6,7 +6,7 @@
       %th.text-center Total Tickets
   %tbody
     - @projects.each do |project|
-      %tr.border-bottom
+      %tr
         %td
           = link_to project.name, project_path(project)
           %p= project.description
