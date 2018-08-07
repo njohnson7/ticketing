@@ -1,0 +1,13 @@
+= render 'shared/errors', model: @ticket
+= form_with model: @ticket, local: true do |f|
+  .form-group
+    = f.label :project
+    = f.select :project, class: 'form-control bg-dark'
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control bg-dark'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control bg-dark'
+  .form-group.actions
+    = f.submit nil, class: 'btn btn-primary'

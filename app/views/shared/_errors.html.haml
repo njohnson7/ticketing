@@ -1,0 +1,6 @@
+- if model.errors.any?
+  .text-danger
+    %h3 #{model.errors.size} #{'error'.pluralize(model.errors.size)} prohibited this #{model.class.name.downcase} from being saved:
+    %ul
+      - model.errors.full_messages.each do |error_msg|
+        %li= error_msg

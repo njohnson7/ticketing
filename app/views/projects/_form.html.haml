@@ -1,9 +1,4 @@
-- if @project.errors.any?
-  .text-danger
-    %h3 #{@project.errors.size} #{'error'.pluralize(@project.errors.size)} prohibited this project from being saved:
-    %ul
-      - @project.errors.full_messages.each do |error_msg|
-        %li= error_msg
+= render 'shared/errors', model: @project
 = form_with model: @project, local: true do |f|
   .form-group
     = f.label :name
