@@ -1,0 +1,18 @@
+%table.table.table-dark
+  %thead
+    %tr
+      %th Name
+      %th Assignee
+      %th Status
+      %th Tags
+      %th
+  %tbody
+    - tickets.each do |ticket|
+      %tr
+        %td= link_to ticket.name, ticket_path(ticket)
+        %td [USER]
+        %td= format_ticket_status(ticket.status)
+        %td [TAGS]
+        %td
+          = link_to 'Edit', edit_ticket_path(ticket)
+          = link_to 'Delete', ticket_path(ticket), method: :delete

@@ -3,3 +3,5 @@
 %p
   = link_to 'Edit', edit_project_path(@project)
   = link_to 'Delete', project_path(@project), method: :delete
+%h3 Tickets
+= render 'tickets/table', tickets: @project.tickets

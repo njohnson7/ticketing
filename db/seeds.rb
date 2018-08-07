@@ -12,3 +12,4 @@ project2 = Project.create name: 'Project 2', description: 'description 2'
 ticket1 = Ticket.create name: 'Ticket 1', body: 'body 1', status: 'new', project_id: 1
 ticket2 = Ticket.create name: 'Ticket 2', body: 'body 2', status: 'blocked', project_id: 1
 ticket3 = Ticket.create name: 'Ticket 3', body: 'body 3', status: 'in_progress', project_id: 2
+ticket4 = Ticket.create name: 'Ticket 4', body: 'body 4', status: 'fixed', project_id: 2

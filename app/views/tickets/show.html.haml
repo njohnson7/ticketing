@@ -1,0 +1,22 @@
+%h2= @ticket.name
+%p= @ticket.body
+%p
+  %span Tags:
+  [TAGS]
+%p
+  = link_to 'Edit', edit_ticket_path(@ticket)
+  = link_to 'Delete', ticket_path(@ticket), method: :delete
+%table.table.table-dark.border-bottom
+  %thead
+    %tr
+      %th Status
+      %th Creator
+      %th Assignee
+  %tbody
+    %tr
+      %td= format_ticket_status(@ticket.status)
+      %td [USER1]
+      %td [USER2]
+%h3 Comments
+%p There are no comments.
+%p [COMMENT FORM]

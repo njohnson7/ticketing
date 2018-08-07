@@ -2,12 +2,21 @@
 = form_with model: @ticket, local: true do |f|
   .form-group
     = f.label :project
-    = f.select :project, class: 'form-control bg-dark'
+    %br
+    = f.collection_select :project_id, Project.all, :id, :name
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control bg-dark'
   .form-group
     = f.label :body
     = f.text_area :body, class: 'form-control bg-dark'
+  .form-group
+    = f.label :status
+    %br
+    = f.select :status, Ticket::STATUSES
+  .form-group
+    = f.label 'Assigned To'
+  .form-group
+    = f.label 'Tags'
   .form-group.actions
     = f.submit nil, class: 'btn btn-primary'
