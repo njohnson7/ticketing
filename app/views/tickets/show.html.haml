@@ -5,7 +5,7 @@
   [TAGS]
 %p
   = link_to 'Edit', edit_ticket_path(@ticket)
-  = link_to 'Delete', ticket_path(@ticket), method: :delete
+  = link_to 'Delete', ticket_path(@ticket), method: :delete, 'data-confirm': 'Are you sure?'
 %table.table.table-dark.border-bottom
   %thead
     %tr

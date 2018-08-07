@@ -13,3 +13,8 @@ ticket1 = Ticket.create name: 'Ticket 1', body: 'body 1', status: 'new', project
 ticket2 = Ticket.create name: 'Ticket 2', body: 'body 2', status: 'blocked', project_id: 1
 ticket3 = Ticket.create name: 'Ticket 3', body: 'body 3', status: 'in_progress', project_id: 2
 ticket4 = Ticket.create name: 'Ticket 4', body: 'body 4', status: 'fixed', project_id: 2
+
+tag1 = Tag.create name: 'tag1', tickets: [ticket1]
+tag2 = Tag.create name: 'tag2', tickets: [ticket2]
+tag3 = Tag.create name: 'tag3', tickets: [ticket1, ticket2, ticket3]
+tag4 = Tag.create name: 'tag4'

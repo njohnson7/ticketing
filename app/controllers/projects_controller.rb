@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new params.require(:project).permit(:name, :description)
+    @project = Project.new get_params
     if @project.save
       flash[:success] = 'Project was successfully created.'
       redirect_to project_path(@project)
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update params.require(:project).permit(:name, :description)
+    if @project.update get_params
       flash[:success] = 'Project was successfully updated.'
       redirect_to project_path(@project)
     else
@@ -43,5 +43,9 @@ class ProjectsController < ApplicationController
   private
     def find_project
       @project = Project.find params[:id]
+    end
+
+    def get_params
+      params.require(:project).permit(:name, :description)
     end
 end
