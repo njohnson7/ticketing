@@ -1,5 +1,5 @@
 class Ticket < ApplicationRecord
-  STATUSES = %w[new blocked in_progress fixed].freeze
+  STATUSES = { 'New' => 'new', 'Blocked' => 'blocked', 'In Progress' => 'in_progress', 'Fixed' => 'fixed' }.freeze
 
   belongs_to :project
   has_many :tag_tickets

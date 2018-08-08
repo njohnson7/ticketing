@@ -2,7 +2,9 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.where params.permit(:project, :status).reject { |k, v| v.blank? }
+    tag = params.permit(:tag)[:tag]
+    @tickets = @tickets.select { |ticket| ticket.tags.map(&:id).include? tag.to_i } unless tag.blank?
   end
 
   def show
@@ -46,6 +48,6 @@ class TicketsController < ApplicationController
     end
 
     def get_params
-      params.require(:ticket).permit(:project_id, :name, :body, :status)
+      params.require(:ticket).permit(:project_id, :name, :body, :status, :tags)
     end
 end

@@ -1,5 +1,9 @@
 module ApplicationHelper
   def format_ticket_status ticket_status
-    ticket_status.tr('_', ' ').gsub(/\b\w/, &:upcase)
+    Ticket::STATUSES.key ticket_status
+  end
+
+  def format_tags tags
+    tags.map(&:name).join ', '
   end
 end

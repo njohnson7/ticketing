@@ -12,7 +12,7 @@
         %td= link_to ticket.name, ticket_path(ticket)
         %td [USER]
         %td= format_ticket_status(ticket.status)
-        %td [TAGS]
+        %td= format_tags(ticket.tags)
         %td
           = link_to 'Edit', edit_ticket_path(ticket)
           = link_to 'Delete', ticket_path(ticket), method: :delete, 'data-confirm': 'Are you sure?'

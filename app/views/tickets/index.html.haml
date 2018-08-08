@@ -1,16 +1,17 @@
 %h2 Tickets
-= form_with model: @ticket, local: true, method: :get do |f|
+= form_with local: true, method: :get, skip_enforcing_utf8: true do |f|
   .form-group.d-inline
     = f.label :project, 'Show tickets from'
-    = f.collection_select :project_id, Project.all, :id, :name, prompt: 'All Projects'
+    = f.collection_select :project, Project.all, :id, :name, selected: params[:project], include_blank: 'All Projects'
   .form-group.d-inline
     = f.label :status, 'with status'
-    = f.select :status, Ticket::STATUSES.map(&method(:format_ticket_status)), prompt: 'Any Status'
+    = f.select :status, Ticket::STATUSES, selected: params[:status], include_blank: 'Any Status'
   .form-group.d-inline
-    = f.label 'tagged [Tags]'
+    = f.label :tag, 'tagged'
+    = f.collection_select :tag, Tag.all, :id, :name, selected: params[:tag], include_blank: '-'
   .form-group.actions.d-inline
-    = f.submit 'Update', class: 'btn btn-primary'
-    = link_to 'Clear Filters', '#'
+    = f.submit 'Update', name: nil, class: 'btn btn-primary'
+    = link_to 'Clear Filters', tickets_path
 %br
 = render 'table', tickets: @tickets
 .mt-4= link_to 'New Ticket', new_ticket_path

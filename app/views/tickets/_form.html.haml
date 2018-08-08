@@ -17,6 +17,9 @@
   .form-group
     = f.label 'Assigned To'
   .form-group
-    = f.label 'Tags'
+    = f.label :tags
+    %br
+    = f.collection_select :tags, Tag.all, :id, :name, {}, multiple: true, selected: params[:tags]
+    %p TODO: FIX!
   .form-group.actions
     = f.submit nil, class: 'btn btn-primary'

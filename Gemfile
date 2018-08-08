@@ -48,6 +48,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-theme'
+  gem 'pry-doc'
   gem 'shog'
 end
 
