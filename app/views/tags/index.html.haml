@@ -1,0 +1,16 @@
+%h2 Tags
+%table.table.table-dark
+  %thead
+    %tr.border-bottom
+      %th Name
+      %th.text-center Tickets
+      %th
+  %tbody
+    - @tags.each do |tag|
+      %tr
+        %td= tag.name
+        %td.text-center= link_to tag.tickets.size, tickets_path(tag: tag.id)
+        %td
+          = link_to 'Edit', edit_tag_path(tag)
+          = link_to 'Delete', tag_path(tag), method: :delete, 'data-confirm': 'Are you sure?'
+.mt-4= link_to 'New Tag', new_tag_path

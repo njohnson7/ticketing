@@ -48,6 +48,6 @@ class TicketsController < ApplicationController
     end
 
     def get_params
-      params.require(:ticket).permit(:project_id, :name, :body, :status, :tags)
+      params.require(:ticket).permit(:project_id, :name, :body, :status, tag_ids: [])
     end
 end
