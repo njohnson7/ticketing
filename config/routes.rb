@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :projects
   resources :tickets
   resources :tags, except: :show
+  resources :users, only: [:new, :create]
 end
