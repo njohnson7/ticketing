@@ -18,3 +18,5 @@ tag1 = Tag.create name: 'tag1', tickets: [ticket1]
 tag2 = Tag.create name: 'tag2', tickets: [ticket2]
 tag3 = Tag.create name: 'tag3', tickets: [ticket1, ticket2, ticket3]
 tag4 = Tag.create name: 'tag4'
+
+user_a = User.create name: 'a', email: 'a@a.a', password: 'a'

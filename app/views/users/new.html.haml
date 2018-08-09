@@ -1,0 +1,17 @@
+%h2 Sign Up
+= render 'shared/errors', model: @user
+= form_with model: @user, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control bg-dark'
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control bg-dark'
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control bg-dark'
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control bg-dark'
+  .form-group.actions
+    = f.submit 'Create Account', class: 'btn btn-primary'

@@ -6,6 +6,11 @@
       %li.nav-item= link_to 'Tickets', tickets_path, class: 'nav-link'
       %li.nav-item= link_to 'Tags', tags_path, class: 'nav-link'
   .container.justify-content-end
-    = link_to 'Login', '#' 
-    %span.p-1 or
-    = link_to 'Signup', '#'
+    - if logged_in?
+      Signed in as #{current_user.name}
+      %span.p-1
+      = link_to 'Logout', logout_path, method: :delete
+    - else
+      = link_to 'Login', login_path
+      %span.p-1 or
+      = link_to 'Signup', signup_path

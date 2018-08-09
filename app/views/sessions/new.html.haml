@@ -1,0 +1,10 @@
+%h2 Login
+= form_with local: true do |f|
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control bg-dark', placeholder: params[:email], autofocus: true
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control bg-dark'
+  .form-group.actions
+    = f.submit 'Login', class: 'btn btn-primary'
