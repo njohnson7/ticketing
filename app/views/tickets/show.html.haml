@@ -15,7 +15,7 @@
   %tbody
     %tr
       %td= format_ticket_status(@ticket.status)
-      %td [USER1]
+      %td= @ticket.creator.name
       %td [USER2]
 %h3 Comments
 %p There are no comments.

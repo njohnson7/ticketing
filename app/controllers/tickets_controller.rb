@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new get_params
+    @ticket = Ticket.new get_params.merge(creator: current_user)
     if @ticket.save
       flash[:success] = 'Ticket was successfully created.'
       redirect_to ticket_path(@ticket)
