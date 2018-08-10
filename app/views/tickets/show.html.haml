@@ -16,7 +16,7 @@
     %tr
       %td= format_ticket_status(@ticket.status)
       %td= @ticket.creator.name
-      %td [USER2]
+      %td= @ticket.assignee&.name
 %h3 Comments
 %p There are no comments.
 %p [COMMENT FORM]

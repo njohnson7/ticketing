@@ -10,7 +10,7 @@
     - tickets.each do |ticket|
       %tr
         %td= link_to ticket.name, ticket_path(ticket)
-        %td [USER]
+        %td= ticket.assignee&.name
         %td= format_ticket_status(ticket.status)
         %td= format_tags(ticket.tags)
         %td
