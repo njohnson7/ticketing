@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :find_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
 
   def index
     @tickets = Ticket.where params.permit(:project, :status).reject { |k, v| v.blank? }
