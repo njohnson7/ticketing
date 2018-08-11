@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
-  before_action :find_ticket, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:index, :show]
+  before_action :find_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
     @tickets = Ticket.where params.permit(:project, :status).reject { |k, v| v.blank? }
@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def new

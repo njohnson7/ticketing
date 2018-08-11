@@ -18,5 +18,14 @@
       %td= @ticket.creator.name
       %td= @ticket.assignee&.name
 %h3 Comments
-%p There are no comments.
-%p [COMMENT FORM]
+- if @ticket.comments?
+  - @ticket.comments.each do |comment|
+    .card.bg-dark
+      .card-body
+        %p= comment.body
+        %p.small posted by #{comment.creator.name} #{format_timestamps comment}
+        = link_to 'Edit', edit_ticket_comment_path(@ticket, comment)
+        = link_to 'Delete', ticket_comment_path(@ticket, comment), method: :delete, 'data-confirm': 'Are you sure?'
+- else
+  %p There are no comments.
+= render 'comments/form'

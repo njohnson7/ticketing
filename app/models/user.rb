@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :tickets
   has_many :assignments, class_name: 'Ticket', foreign_key: 'assignee_id'
+  has_many :comments
 
   has_secure_password
 

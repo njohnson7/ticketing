@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root to: 'projects#index'
 
   resources :projects
-  resources :tickets
+
+  resources :tickets do
+    resources :comments, only: [:create, :edit, :update, :destroy]
+  end
+
   resources :tags, except: :show
 
   resources :users, only: :create

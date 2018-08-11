@@ -1,0 +1,13 @@
+= render 'shared/errors', model: @comment
+= form_with model: [@ticket, @comment], local: true do |f|
+  .form-group
+    = f.label :body, "#{@comment.new_record? ? 'Add a' : 'Edit'} comment"
+    = f.text_area :body, class: 'form-control bg-dark'
+  .form-group
+    = label_tag :ticket_status, 'Update Ticket Status'
+    %br
+    = select_tag :ticket_status, options_for_select(Ticket::STATUSES), include_blank: 'Do not change', class: 'bg-dark'
+  .form-group.actions
+    = f.submit nil, class: 'btn btn-primary'
+    or
+    = link_to 'Cancel', ticket_path(@ticket)

@@ -13,3 +13,9 @@ tag1 = Tag.create name: 'tag1', tickets: [ticket1]
 tag2 = Tag.create name: 'tag2', tickets: [ticket2]
 tag3 = Tag.create name: 'tag3', tickets: [ticket1, ticket2, ticket3]
 tag4 = Tag.create name: 'tag4'
+
+comment1 = Comment.create body: 'comment1', ticket: ticket1, creator: user_a
+comment2 = Comment.create body: 'comment2', ticket: ticket1, creator: user_a
+comment3 = Comment.create body: 'comment3', ticket: ticket2, creator: user_a
+comment4 = Comment.create body: 'comment4', ticket: ticket2, creator: user_b
+updated_comment = Comment.create body: 'updated comment', ticket: ticket1, creator: user_a, created_at: 2.days.ago, updated_at: 1.day.ago 
