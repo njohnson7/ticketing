@@ -1,16 +1,19 @@
 %h2 Projects
-%table.table.table-dark
-  %thead
-    %tr.border-bottom
-      %th Name
-      %th.text-center Open Tickets
-      %th.text-center Total Tickets
-  %tbody
-    - @projects.each do |project|
-      %tr
-        %td
-          = link_to project.name, project_path(project)
-          %p= project.description
-        %td.text-center= project.open_tickets
-        %td.text-center= project.total_tickets
+- if @projects.empty?
+  %p There are no projects.
+- else
+  %table.table.table-dark
+    %thead
+      %tr.border-bottom
+        %th Name
+        %th.text-center Open Tickets
+        %th.text-center Total Tickets
+    %tbody
+      - @projects.each do |project|
+        %tr
+          %td
+            = link_to project.name, project_path(project)
+            %p= project.description
+          %td.text-center= project.open_tickets
+          %td.text-center= project.total_tickets
 .mt-4= link_to 'New Project', new_project_path
