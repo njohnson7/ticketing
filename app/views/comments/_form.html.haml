@@ -6,7 +6,7 @@
   .form-group
     = label_tag :ticket_status, 'Update Ticket Status'
     %br
-    = select_tag :ticket_status, options_for_select(Ticket::STATUSES), include_blank: 'Do not change', class: 'bg-dark'
+    = select_tag :ticket_status, options_for_select(Ticket::STATUSES, selected: params[:ticket_status]), include_blank: 'Do not change', class: 'bg-dark'
   .form-group.actions
     = f.submit nil, class: 'btn btn-primary'
     or

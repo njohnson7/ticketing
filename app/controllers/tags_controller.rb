@@ -2,8 +2,11 @@ class TagsController < ApplicationController
   before_action :require_user, except: [:index, :show]
   before_action :find_tag, only: [:edit, :update, :destroy]
 
-  def index
-    @tags = Tag.all
+  def index 
+    # SELECT DISTINCT tags.*, COUNT(tag_tickets.tag_id) AS tickets_count FROM tags
+    # LEFT OUTER JOIN tag_tickets ON tags.id = tag_tickets.tag_id
+    # GROUP BY tags.id;
+    @tags = Tag.left_outer_joins(:tag_tickets).distinct.select('tags.*, COUNT(tag_tickets.tag_id) AS tickets_count').group('tags.id')
   end
 
   def new
