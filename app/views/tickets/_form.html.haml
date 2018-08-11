@@ -15,7 +15,8 @@
     %br
     = f.select :status, Ticket::STATUSES
   .form-group
-    = f.label :assignee_id
+    = f.label :assignee_id, 'Assigned To'
+    %br
     = f.collection_select :assignee_id, User.all, :id, :name, include_blank: 'No one'
   .form-group
     = f.label :tag_ids

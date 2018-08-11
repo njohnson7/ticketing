@@ -18,4 +18,5 @@ comment1 = Comment.create body: 'comment1', ticket: ticket1, creator: user_a
 comment2 = Comment.create body: 'comment2', ticket: ticket1, creator: user_a
 comment3 = Comment.create body: 'comment3', ticket: ticket2, creator: user_a
 comment4 = Comment.create body: 'comment4', ticket: ticket2, creator: user_b
+comment5 = Comment.create body: 'comment5', ticket: ticket3, creator: user_b
 updated_comment = Comment.create body: 'updated comment', ticket: ticket1, creator: user_a, created_at: 2.days.ago, updated_at: 1.day.ago 
